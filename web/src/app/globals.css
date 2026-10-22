@@ -1,0 +1,147 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ============================================================
+   NetBill Design Tokens — Bab 4 (Premium SaaS Modern)
+   Format HSL components: dipakai via hsl(var(--token) / alpha)
+   ============================================================ */
+@layer base {
+  :root {
+    --background: 0 0% 98%;
+    --foreground: 240 10% 10%;
+    --card: 0 0% 100%;
+    --card-foreground: 240 10% 10%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 240 10% 10%;
+    --primary: 243 75% 59%; /* Indigo */
+    --primary-foreground: 0 0% 100%;
+    --secondary: 210 40% 96%; /* Chip / tombol sekunder */
+    --secondary-foreground: 240 10% 10%;
+    --muted: 210 40% 96%;
+    --muted-foreground: 240 5% 45%;
+    --accent: 210 40% 94%;
+    --accent-foreground: 240 10% 10%;
+    --success: 152 69% 31%;
+    --success-foreground: 0 0% 100%;
+    --warning: 38 92% 50%;
+    --warning-foreground: 240 10% 10%;
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+    --info: 199 89% 48%;
+    --info-foreground: 0 0% 100%;
+    --border: 240 6% 90%;
+    --input: 240 6% 88%;
+    --ring: 243 75% 59%;
+    --radius: 0.75rem;
+    /* Sidebar */
+    --sidebar: 0 0% 100%;
+    --sidebar-foreground: 240 10% 10%;
+    --sidebar-primary: 243 75% 59%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    /* Grafik */
+    --chart-1: 243 75% 59%;
+    --chart-2: 152 69% 41%;
+    --chart-3: 38 92% 50%;
+    --chart-4: 199 89% 48%;
+    --chart-5: 262 83% 58%;
+  }
+
+  .dark {
+    --background: 240 10% 4%;
+    --foreground: 0 0% 96%;
+    --card: 240 7% 8%;
+    --card-foreground: 0 0% 96%;
+    --popover: 240 7% 8%;
+    --popover-foreground: 0 0% 96%;
+    --primary: 245 85% 67%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 240 4% 16%;
+    --secondary-foreground: 0 0% 96%;
+    --muted: 240 4% 16%;
+    --muted-foreground: 240 5% 63%;
+    --accent: 240 4% 14%;
+    --accent-foreground: 0 0% 96%;
+    --success: 152 69% 45%;
+    --success-foreground: 240 10% 6%;
+    --warning: 38 92% 60%;
+    --warning-foreground: 240 10% 6%;
+    --destructive: 0 84% 65%;
+    --destructive-foreground: 0 0% 100%;
+    --info: 199 89% 60%;
+    --info-foreground: 240 10% 6%;
+    --border: 240 5% 16%;
+    --input: 240 5% 18%;
+    --ring: 245 85% 67%;
+    --sidebar: 240 7% 6%;
+    --sidebar-foreground: 0 0% 96%;
+    --sidebar-primary: 245 85% 67%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --chart-1: 245 85% 67%;
+    --chart-2: 152 69% 45%;
+    --chart-3: 38 92% 60%;
+    --chart-4: 199 89% 60%;
+    --chart-5: 263 85% 66%;
+  }
+
+  .dark body {
+    background:
+      radial-gradient(48rem 26rem at 18% -10%, hsl(243 75% 59% / 0.14), transparent 60%),
+      radial-gradient(42rem 24rem at 88% 8%, hsl(262 83% 58% / 0.12), transparent 62%),
+      radial-gradient(36rem 22rem at 50% 110%, hsl(199 89% 48% / 0.1), transparent 60%),
+      hsl(var(--background));
+    background-attachment: fixed;
+  }
+
+  * {
+    @apply border-border;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-background text-foreground antialiased;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-family: var(--font-jakarta), var(--font-inter), system-ui, sans-serif;
+  }
+}
+
+@layer utilities {
+  .container-page {
+    @apply mx-auto w-full max-w-6xl px-4 sm:px-6 lg:px-8;
+  }
+  /* Kartu interaktif — hover naik & bayangan mengikuti (Bab 4.4) */
+  .card-hover {
+    @apply transition-all duration-200 hover:-translate-y-0.5 hover:shadow-lift;
+  }
+  .text-gradient {
+    @apply bg-gradient-to-r from-indigo-600 via-violet-600 to-purple-600 bg-clip-text text-transparent dark:from-indigo-400 dark:via-violet-400 dark:to-purple-400;
+  }
+  .btn-gradient {
+    @apply bg-gradient-to-r from-indigo-600 via-violet-600 to-purple-600 text-white shadow-md shadow-indigo-500/25 transition-all hover:shadow-lg hover:shadow-indigo-500/35 hover:brightness-110 active:brightness-95 dark:from-indigo-500 dark:via-violet-500 dark:to-purple-500;
+  }
+  .hero-glow {
+    background:
+      radial-gradient(48rem 26rem at 18% -10%, hsl(243 75% 59% / 0.14), transparent 60%),
+      radial-gradient(42rem 24rem at 88% 8%, hsl(262 83% 58% / 0.12), transparent 62%),
+      radial-gradient(36rem 22rem at 50% 110%, hsl(199 89% 48% / 0.1), transparent 60%);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  .animate-fade-up {
+    animation: none !important;
+  }
+}
